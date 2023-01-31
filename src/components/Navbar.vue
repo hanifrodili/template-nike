@@ -1,18 +1,23 @@
 <template lang="pug">
 header.top-header
   .header-wrapper
-    .header-brand-logo
+    a.header-brand-logo(href="/")
       v-img( :src="require('@/assets/images/nike.svg')" )  
     .header-nav  
       ul.top-menu-list
-        li.top-menu-text Men
-        li.top-menu-text Women
-        li.top-menu-text Kids
+        a(href="#")
+          li.top-menu-text Men
+        a(href="#")
+          li.top-menu-text Women
+        a(href="#")
+          li.top-menu-text Kids
     .header-button
-      v-btn.pa-2(icon)
-        v-img.button-icon( :src="require('@/assets/images/favourites.svg')" )
-      v-btn.pa-2(icon)
-        v-img.button-icon( :src="require('@/assets/images/bag.svg')" )
+      a(href="#")
+        v-btn.pa-2(icon)
+          v-img.button-icon( :src="require('@/assets/images/favourites.svg')" )
+      a(href="#")
+        v-btn.pa-2(icon)
+          v-img.button-icon( :src="require('@/assets/images/bag.svg')" )
       v-btn.pa-2.nav-mobile-btn(icon @click="openNav()")
         v-img.button-icon( :src="require('@/assets/images/hamburger.svg')" )  
 
@@ -26,22 +31,22 @@ header.top-header
           li.mobile-menu-text(@click="openSubmenu('men')")
             |Men
             svg(width="8" height="15" viewBox="0 0 28 50" fill="none" xmlns="http://www.w3.org/2000/svg")
-              path(d="M1 49L26 25.0017L1 1" stroke="black" stroke-width="5")
+              path(d="M1 49L26 25.0017L1 1" stroke="#111" stroke-width="5")
 
           li.mobile-menu-text(@click="openSubmenu('women')")
             |Women
             svg(width="8" height="15" viewBox="0 0 28 50" fill="none" xmlns="http://www.w3.org/2000/svg")
-              path(d="M1 49L26 25.0017L1 1" stroke="black" stroke-width="5")
+              path(d="M1 49L26 25.0017L1 1" stroke="#111" stroke-width="5")
 
           li.mobile-menu-text(@click="openSubmenu('kids')")
             |Kids
             svg(width="8" height="15" viewBox="0 0 28 50" fill="none" xmlns="http://www.w3.org/2000/svg")
-              path(d="M1 49L26 25.0017L1 1" stroke="black" stroke-width="5")
+              path(d="M1 49L26 25.0017L1 1" stroke="#111" stroke-width="5")
       
       .second-menu
         v-btn.pa-2.button-icon.back-nav-btn(icon @click="backMainMenu()")
           svg(width="8" height="15" viewBox="0 0 28 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotateZ(180deg)")
-            path(d="M1 49L26 25.0017L1 1" stroke="black" stroke-width="5")
+            path(d="M1 49L26 25.0017L1 1" stroke="#111" stroke-width="5")
           .pl-4(style="font-size:16px; color: #111") Back
         ul.mobile-submenu-list(id="men")
           li.mb-4.submenu-title Men
@@ -87,7 +92,7 @@ export default {
       document.querySelector(`#${id}`).style.pointerEvents = "all"
     },
     backMainMenu() {
-      document.querySelector(".second-menu").style.transform = "translateX(320px)"
+      document.querySelector(".second-menu").style.transform = "translateX(100%)"
       document.querySelectorAll(".mobile-submenu-list").forEach(element => {
         element.style.display = "none"
         element.style.pointerEvents = "none"
@@ -134,13 +139,14 @@ export default {
     padding: 0;
   }
   .top-menu-text{
+    color: #111;
     padding: 16px 12px 18px 12px;
     border-bottom: 2px solid transparent;
     cursor: pointer;
   }
 
   .top-menu-text:hover {
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #111;
   }
 }
 
@@ -155,6 +161,7 @@ export default {
 
 .mobile-nav {
   pointer-events: none;
+  position: relative;
   width: 100vw;
   height: 100vh;
   position: absolute;z-index: 9;
@@ -162,18 +169,18 @@ export default {
   background-color: rgba(0,0,0,0);
   inset: 0;
   transition: background ease-in-out .25s;
+  display: flex;
+  justify-content: flex-end;
 
   .mobile-nav-panel{
     position: absolute;
     overflow-x: hidden;
-    inset: 0;
     height: 100vh;
     background-color: #fff;
     padding: 40px 0 0 0;
     width: 320px;
-    transform: translateX(320px);
+    transform: translateX(100%);
     transition: transform ease-in-out .25s;
-    margin-left: auto;
 
     .main-menu {
       padding: 30px 30px 150px 36px;
@@ -212,7 +219,7 @@ export default {
       right: 0;
       left: 0;
       bottom: 0;
-      transform: translateX(320px);
+      transform: translateX(100%);
       transition: transform ease-in-out .25s;
 
       .mobile-submenu-list{

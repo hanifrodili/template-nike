@@ -61,10 +61,11 @@ a{
         font-size: 16px;
         font-weight: 500;
         line-height: 24px;
+        margin-bottom: 4px;
       }
       p:nth-child(2){
         font-size: 12px;
-        line-height: 28px;
+        line-height: 18px;
       }
     }
   }

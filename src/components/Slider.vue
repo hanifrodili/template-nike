@@ -1,7 +1,9 @@
 <template lang="pug">
 .Slider
   .slider-button
-    p Shop
+    a(href="#")
+      v-btn(text)
+        p.mb-0.text-capitalize(style="font-size:16px; font-weight:500; line-height: 24px;") Shop
     div.nav
       v-btn.pa-2.nav-button-left(icon @click="goPrev()")
         img.button-icon( :src="require('../assets/images/arrow.svg')" style="transform: rotateZ(180deg)")
@@ -141,7 +143,7 @@ export default {
 
 @media(max-width: 959px) {
   .slider-button {
-    margin-top: -50px;
+    margin-top: -55px;
     margin-bottom: 25px;
     .nav{
       display: none;

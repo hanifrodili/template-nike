@@ -18,7 +18,9 @@
 
   export default {
     name: 'MainPage',
-
+    mounted() {
+      document.title = 'Home - Nike MY'
+    },
     components: {
       TopHeader,
       CarouselBanner,
